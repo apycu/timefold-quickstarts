@@ -33,7 +33,7 @@ public class FactoryTimeSlot {
         }
     }
 
-    public static List<TimeSlot> createSlots(String dateStartString, String dateEndString, int granularityMinutes) throws ParseException {
+    public static List<TimeSlot> createSlots(String dateStartString, String dateEndString, int duration, int granularityMinutes) throws ParseException {
         List<TimeSlot> slots = new ArrayList<>();
         Date dateStart = date(dateStartString);
         Date dateEnd = date(dateEndString);
@@ -43,7 +43,7 @@ public class FactoryTimeSlot {
 
         while (!start.isAfter(end)) {
             if (start.getHour() >= freeSlotsFromHours && start.getHour() <= freeSlotsUntilHours) {
-                slots.add(new TimeSlot(Date.from(start.atZone(ZoneId.systemDefault()).toInstant()), Date.from(start.plusMinutes(granularityMinutes).atZone(ZoneId.systemDefault()).toInstant())));
+                slots.add(new TimeSlot(Date.from(start.atZone(ZoneId.systemDefault()).toInstant()), Date.from(start.plusMinutes(duration).atZone(ZoneId.systemDefault()).toInstant())));
             }
             start = start.plusMinutes(granularityMinutes);
         }

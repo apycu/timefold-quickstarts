@@ -77,9 +77,9 @@ public class ScheduleApp {
 
         List<Resource> resources = new ArrayList<>();
 
-        List<TimeSlot> slotsMainAppointment = FactoryTimeSlot.createSlots("2024-1-1", "2024-4-1", 60);
-        List<TimeSlot> slots1 = FactoryTimeSlot.createSlots("2024-1-1", "2024-3-1", 15);
-        List<TimeSlot> slots2 = FactoryTimeSlot.createSlots("2024-1-1", "2024-3-1", 60);
+        List<TimeSlot> slotsMainAppointment = FactoryTimeSlot.createSlots("2024-1-1", "2024-4-1", 240, 30);
+        List<TimeSlot> slots1 = FactoryTimeSlot.createSlots("2024-1-1", "2024-3-1", 60, 30);
+        List<TimeSlot> slots2 = FactoryTimeSlot.createSlots("2024-1-1", "2024-3-1", 60, 60);
 
 
         resources.add(new Resource("0stCheckIn", 60, slots1));
