@@ -79,11 +79,8 @@ public class ScheduleApp {
 
         List<TimeSlot> slotsMainAppointment = FactoryTimeSlot.createSlots("2024-1-1", "2024-4-1", 60);
         List<TimeSlot> slots1 = FactoryTimeSlot.createSlots("2024-1-1", "2024-3-1", 15);
-         List<TimeSlot> slots2 = FactoryTimeSlot.createSlots("2024-1-1", "2024-3-1", 60);
+        List<TimeSlot> slots2 = FactoryTimeSlot.createSlots("2024-1-1", "2024-3-1", 60);
 
-//        List<TimeSlot> slotsMainAppointment = FactoryTimeSlot.createSlots("2024-3-25", "2024-5-26", 180);
-//        List<TimeSlot> slots1 = FactoryTimeSlot.createSlots("2024-3-1", "2024-5-26", 15);
-//        List<TimeSlot> slots2 = FactoryTimeSlot.createSlots("2024-3-1", "2024-5-26", 60);
 
         resources.add(new Resource("0stCheckIn", 60, slots1));
         resources.add(new Resource("1stCheckIn", 60, slots1));
@@ -102,16 +99,7 @@ public class ScheduleApp {
         timeConstraints.add(new TimeConstraint("SimultaneousResource", "Main Operation", Duration.ofMinutes(30), Duration.ofMinutes(30)));
         timeConstraints.add(new TimeConstraint("Main Operation", "1stCheckOut", Duration.ofDays(5), Duration.ofDays(8)));
 
-//        List<TaggableResource> docs = new ArrayList<>();
-//        TaggableResource resDoctor = new TaggableResource(""+id++, "Doctor John", FactoryTimeSlot.createFromDays(new int[]{2, 4}), null, "doctor");
-//        TaggableResource resDoctor2 = new TaggableResource(""+id++, "Doctor Mario", FactoryTimeSlot.createFromDays(new int[]{1}), null, "doctor");
-//        TaggableResource nurse = new TaggableResource(""+id++, "Nurse Maria", FactoryTimeSlot.create(1, 1, 30), null, "nurse");
-//        docs.add(resDoctor);
-//        docs.add(resDoctor2);
-//        docs.add(nurse);
-
         Schedule schedule = new Schedule(timeConstraints, resources); // , docs);
-        // schedule.setStartDate(new SimpleDateFormat("yyyy-MM-dd").parse("2024-1-1"));
         return schedule;
     }
 

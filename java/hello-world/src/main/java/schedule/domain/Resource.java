@@ -30,11 +30,6 @@ public class Resource {
     @ValueRangeProvider
     private List<TimeSlot> availabilities;
 
-//    @PlanningVariable(valueRangeProviderRefs = "bestCommonResource1")
-//    private TaggableResource bestCommonResource1;
-
-    private String bestCommonResource1Name;
-
     private int difficulty;
 
     public Resource(String id, Integer durationMinutes, List<TimeSlot> availabilities) {

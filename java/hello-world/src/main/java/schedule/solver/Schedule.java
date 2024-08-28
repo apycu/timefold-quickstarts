@@ -28,26 +28,12 @@ public class Schedule {
     @PlanningScore
     private HardSoftScore score;
 
-//    @ProblemFactCollectionProperty
-//    private List<TaggableResource> dynamicResources;
-
-    public Schedule(List<TimeConstraint> timeConstraints, List<Resource> resources){ // }, List<TaggableResource> dynamicResources) {
+    public Schedule(List<TimeConstraint> timeConstraints, List<Resource> resources){
         this.timeConstraints = timeConstraints;
         this.resources = resources;
-        //this.dynamicResources = dynamicResources;
         for(Resource resource: resources) {
             resource.setDifficulty((int) timeConstraints.stream().filter(t -> resource.getId().equals(t.getEarlierResourceId()) || resource.getId().equals(t.getLaterResourceId())).count());
         }
     }
-
-//    public Resource getResource(String id) {
-//        return this.getResources().stream().filter(r -> r.getId().equals(id)).findFirst().orElse(null);
-//    }
-
-
-//    @ValueRangeProvider(id = "bestCommonResource1")
-//    public List<TaggableResource> getDynamicTimeRange() {
-//        return this.dynamicResources;
-//    }
 
 }
