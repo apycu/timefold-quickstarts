@@ -16,10 +16,6 @@ public class TimeSlot {
         this.end = toLocal(end);
     }
 
-//    public static TimeSlot fromDate(Date start, Date end) {
-//        return new TimeSlot(toLocal(start), toLocal(end));
-//    }
-
     private LocalDateTime toLocal(Date d) {
         return d.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
     }
